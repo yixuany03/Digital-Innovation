@@ -1,8 +1,22 @@
 const audioButton = document.querySelector(".audio-button");
 const chatBox = document.querySelector(".chat-box");
+const webcamVideo = document.querySelector(".webcam-video");
 
 const DEEPSEEK_API_KEY = "sk-0e19faf29ca241e4bab6264a0536232b";
 const DEEPSEEK_API_URL = "https://api.deepseek.com/v1/chat/completions";
+
+// Start webcam stream
+async function startWebcam() {
+  try {
+    const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+    webcamVideo.srcObject = stream;
+    webcamVideo.play();
+  } catch (err) {
+    console.error("无法访问摄像头:", err);
+    chatBox.innerText = "无法访问摄像头，请检查权限设置。";
+  }
+}
+startWebcam();
 
 // Initialize speech recognition
 const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
@@ -10,19 +24,18 @@ recognition.lang = "zh-CN";
 recognition.interimResults = false;
 recognition.maxAlternatives = 1;
 
-// Start speech recognition on press
+// Press and hold to start, release to stop
 audioButton.addEventListener("mousedown", () => {
   chatBox.innerText = "正在聆听中，请说话...";
   recognition.start();
 });
 
-// Stop speech recognition on release
 audioButton.addEventListener("mouseup", () => {
   recognition.stop();
 });
 
 audioButton.addEventListener("mouseleave", () => {
-  recognition.stop(); // Stop if mouse leaves button while holding
+  recognition.stop();
 });
 
 recognition.onresult = async (event) => {
