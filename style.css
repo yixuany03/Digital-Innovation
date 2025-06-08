@@ -32,15 +32,14 @@
   height: 610px;
   top: 103px;
   left: 474px;
-  background-color: #000000;
 }
 
 .macbook-pro .background {
   position: absolute;
-  width: 1512px;
-  height: 864px;
   top: 0;
   left: 0;
+  width: 1512px;
+  height: 864px;
 }
 
 .macbook-pro .mirror-frame {
@@ -87,15 +86,42 @@
   border-color: #004403;
 }
 
-.macbook-pro .text {
+.macbook-pro .audio-button {
   position: absolute;
-  top: 164px;
-  left: 1140px;
-  font-family: "Inter-Regular", Helvetica;
-  font-weight: 400;
-  color: #000000;
-  font-size: 19.2px;
-  letter-spacing: 0;
-  line-height: normal;
-  white-space: nowrap;
+  width: 93px;
+  height: 63px;
+  top: 640px;
+  left: 348px;
+}
+
+.macbook-pro .light-button-one {
+  left: 811px;
+  position: absolute;
+  width: 61px;
+  height: 61px;
+  top: 727px;
+}
+
+.macbook-pro .light-button-three {
+  left: 954px;
+  position: absolute;
+  width: 61px;
+  height: 61px;
+  top: 727px;
+}
+
+.macbook-pro .light-button-two {
+  left: 882px;
+  position: absolute;
+  width: 61px;
+  height: 61px;
+  top: 727px;
+}
+
+.macbook-pro .upload-photo-button {
+  position: absolute;
+  width: 154px;
+  height: 55px;
+  top: 399px;
+  left: 233px;
 }
