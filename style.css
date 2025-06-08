@@ -28,10 +28,12 @@
 
 .macbook-pro .webcam-video {
   position: absolute;
-  width: 565px;
-  height: 610px;
-  top: 103px;
-  left: 474px;
+  width: 560px; 
+  height: 605px; 
+  top: 107px;  
+  left: 476px; 
+  object-fit: cover; 
+  transform: scaleX(-1);
 }
 
 .macbook-pro .background {
@@ -124,4 +126,8 @@
   height: 55px;
   top: 399px;
   left: 233px;
+}
+
+#avatarImage, #avatarVideo {
+  transition: opacity 0.3s ease-in-out; /* Adjust duration and timing as needed */
 }
