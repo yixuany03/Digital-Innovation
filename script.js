@@ -10,9 +10,19 @@ recognition.lang = "zh-CN";
 recognition.interimResults = false;
 recognition.maxAlternatives = 1;
 
-audioButton.addEventListener("click", () => {
+// Start speech recognition on press
+audioButton.addEventListener("mousedown", () => {
   chatBox.innerText = "正在聆听中，请说话...";
   recognition.start();
+});
+
+// Stop speech recognition on release
+audioButton.addEventListener("mouseup", () => {
+  recognition.stop();
+});
+
+audioButton.addEventListener("mouseleave", () => {
+  recognition.stop(); // Stop if mouse leaves button while holding
 });
 
 recognition.onresult = async (event) => {
